@@ -70,7 +70,7 @@ class Blogs {
     static function featured() {
         $blogs = array();
 
-        $results = pg_query("SELECT * FROM posts where is_featured = 1");
+        $results = pg_query("SELECT * FROM posts where is_featured = TRUE");
 
         $row_object = pg_fetch_object($results);
         while($row_object){

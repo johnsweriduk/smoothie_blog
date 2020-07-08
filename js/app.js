@@ -12,8 +12,3 @@ class SmoothiesGalore extends React.Component {
         );
     }
 }
-
-ReactDOM.render(
-    <SmoothiesGalore></SmoothiesGalore>,
-    document.querySelector('main')
-);

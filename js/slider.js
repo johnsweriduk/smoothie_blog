@@ -5,6 +5,7 @@ class Slider extends React.Component {
     };
 
     componentDidMount = () => {
+        console.log('test');
         this.getFeaturedPosts();
     }
 
@@ -29,6 +30,7 @@ class Slider extends React.Component {
     getFeaturedPosts = () => {
         axios.get('/blogs/featured').then(
             response => {
+                console.log(response);
                 this.setState({
                     featuredPosts: response.data
                 });
@@ -59,8 +61,9 @@ class Slider extends React.Component {
         }
     };
 
-    nextSlide = () => {
-        if(this.state.currentSlide < this.state.featuredPosts.length) {
+    nextSlide = event => {
+        event.preventDefault();
+        if(this.state.currentSlide < this.state.featuredPosts.length - 1) {
             const nextSlide = this.state.currentSlide + 1;
             this.setState({
                 currentSlide: nextSlide
@@ -72,7 +75,8 @@ class Slider extends React.Component {
         }
     };
 
-    prevSlide = () => {
+    prevSlide = event => {
+        event.preventDefault();
         if(this.state.currentSlide === 0) {
             this.setState({
                 currentSlide: this.state.featuredPosts.length - 1

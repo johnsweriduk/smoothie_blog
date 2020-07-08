@@ -1,13 +1,20 @@
+const Router = window.ReactRouterDOM.BrowserRouter;
+const Route =  window.ReactRouterDOM.Route;
+const Link =  window.ReactRouterDOM.Link;
+const Prompt =  window.ReactRouterDOM.Prompt;
+const Switch = window.ReactRouterDOM.Switch;
+const Redirect = window.ReactRouterDOM.Redirect;
+
 class SmoothiesGalore extends React.Component {
     state = {
         addPost: false
     }
     render = () => {
-        return (
+        /*return (
             <div className={"smoothies-galore"}>
                 <div className={"nav"}>
-                    <a href={"/"} onClick={this.showPosts}>Home</a>
-                    <a href={"/add-blog"} onClick={this.createPost}>Add Blog</a>
+                    <Link to="/">Home</Link>
+                    <Link to="/add-post">Add Blog</Link>
                 </div>
                 {this.state.addPost ?
                     <div className={"posts"}>
@@ -18,7 +25,30 @@ class SmoothiesGalore extends React.Component {
                     <CreatePost/>
                 }
             </div>
-        );
+        );*/
+        return (
+            <Router>
+                <div className={"smoothies-galore"}>
+                    <div className={"nav"}>
+                        <Link to="/">Home</Link>
+                        <Link to="/add-post">Add Blog</Link>
+                    </div>
+                    <Switch>
+                        <Route path={"/blog/:id"} component={Blog}>
+                        </Route>
+                        <Route path={"/add-post"}>
+                            <CreatePost />
+                        </Route>
+                        <Route path={"/"}>
+                            <div className={"posts"}>
+                                <Slider/>
+                                <BlogList />
+                            </div>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        )
     }
     showPosts = () => {
         this.setState({

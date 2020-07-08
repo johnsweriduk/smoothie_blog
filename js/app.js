@@ -6,8 +6,8 @@ class SmoothiesGalore extends React.Component {
                     <a href={"/"}>Home</a>
                     <a href={"/add-blog"}>Add Blog</a>
                 </div>
-                <Slider />
                 <BlogList />
+                <BlogCreate />
             </div>
         );
     }

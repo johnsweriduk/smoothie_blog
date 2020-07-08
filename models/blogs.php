@@ -116,13 +116,29 @@ class Blogs {
         return $blog;
     }
     static function create($blog){
-        $query = "INSERT INTO posts 
-                (title, author, image, content, snippet, created_at, is_featured, likes) 
-                VALUES 
-                ($1, $2, $3, $4, $5, $6, $7, $8)";
+        $query = "INSERT INTO posts (title, author, image, content, snippet, created_at, is_featured, likes)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
         $query_params = array($blog->title, $blog->author, $blog->image, $blog->content, $blog->snippet, $blog->created_at, intval($blog->is_featured), $blog->likes);
-        pg_query_params($query, $query_params);
-        return self::all();
+        $result = pg_query_params($query, $query_params);
+
+
+        $results = pg_query("SELECT * FROM posts ORDER BY id DESC LIMIT 1");
+        $row_object = pg_fetch_object($results);
+        while($row_object){
+            $new_blog = new Blog(
+                intval($row_object->id),
+                $row_object->title,
+                $row_object->author,
+                $row_object->image,
+                $row_object->content,
+                $row_object->snippet,
+                $row_object->created_at,
+                $row_object->is_featured,
+                $row_object->likes
+            );
+            $blog = $new_blog;
+            $row_object = pg_fetch_object($results);
+        }
+        return $blog;
     }
 
     static function update($updated_blog){

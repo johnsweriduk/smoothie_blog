@@ -53,8 +53,6 @@ class Slider extends React.Component {
                 created_at: 'test',
                 is_featured: 'test'
             };
-
-
             return (
                 <Slide slide={post}/>
             );

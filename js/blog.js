@@ -22,29 +22,37 @@ class Blog extends React.Component {
     }
 
     render = () => {
-        return (
-            <div className={"blog"}>
-                <div className={"image"}>
-                    <img src={this.state.image}/>
+        if(this.state.edit) {
+            return (
+                <div className={"edit"}>
+
                 </div>
-                <div className={"blog-meta"}>
-                    <div className={"title"}>
-                        <h1>{this.state.title}</h1>
+            );
+        } else {
+            return (
+                <div className={"blog"}>
+                    <div className={"image"}>
+                        <img src={this.state.image}/>
                     </div>
-                    <div className={"author"}>
-                        <p>{this.state.author}</p>
+                    <div className={"blog-meta"}>
+                        <div className={"title"}>
+                            <h1>{this.state.title}</h1>
+                        </div>
+                        <div className={"author"}>
+                            <p>{this.state.author}</p>
+                        </div>
+                        <div className={"created-at"}>
+                            <p>{this.state.created_at}</p>
+                        </div>
+                        <div className={"like"}>
+                            <p>{this.state.likes}</p>
+                        </div>
                     </div>
-                    <div className={"created-at"}>
-                        <p>{this.state.created_at}</p>
-                    </div>
-                    <div className={"like"}>
-                        <p>{this.state.likes}</p>
+                    <div className={"blog-content"}>
+                        <p>{this.state.content}</p>
                     </div>
                 </div>
-                <div className={"blog-content"}>
-                    <p>{this.state.content}</p>
-                </div>
-            </div>
-        )
+            );
+        }
     }
 }

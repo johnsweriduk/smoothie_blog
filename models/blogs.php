@@ -116,8 +116,11 @@ class Blogs {
         return $blog;
     }
     static function create($blog){
-        $query = "INSERT INTO posts (id, title, author, image, content, snippet, created_at, is_featured, likes) VALUES (null, $1, $2, $3, $3, $4, $5, $6, $7, $8)";
-        $query_params = array($blog->title, $blog->author, $blog->image, $blog->content, $blog->snippet, $blog->created_at, $blog->is_featured, $blog->likes);
+        $query = "INSERT INTO posts 
+                (title, author, image, content, snippet, created_at, is_featured, likes) 
+                VALUES 
+                ($1, $2, $3, $4, $5, $6, $7, $8)";
+        $query_params = array($blog->title, $blog->author, $blog->image, $blog->content, $blog->snippet, $blog->created_at, intval($blog->is_featured), $blog->likes);
         pg_query_params($query, $query_params);
         return self::all();
     }

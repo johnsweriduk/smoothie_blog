@@ -7,6 +7,12 @@ RewriteEngine On
 RewriteCond %{REQUEST_METHOD} ^GET$
 RewriteRule ^blogs$ controllers/blogs.php?action=index
 
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^blogs/featured$ controllers/blogs.php?action=featured
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^blogs/([0-9]+)$ controllers/blogs.php?action=single
+
 RewriteCond %{REQUEST_METHOD} ^POST$
 RewriteRule ^blogs$ controllers/blogs.php?action=post
 

@@ -19,4 +19,9 @@ if ($_REQUEST['action'] === 'index') {
 } else if ($_REQUEST['action'] === 'delete') {
     $all_blogs = Blogs::delete($_REQUEST['id']);
     echo json_encode($all_blogs);
+} else if($_REQUEST['action'] === 'featured') {
+    echo json_encode(Blogs::featured());
+} else if($_REQUEST['action'] === 'single') {
+    $blog = Blogs::single($_REQUEST['id']);
+    echo json_encode($blog);
 }

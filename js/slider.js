@@ -2,6 +2,10 @@ class Slider extends React.Component {
     state = {
         featuredPosts: [],
         currentSlide: 0
+    };
+
+    componentDidMount = () => {
+        this.getFeaturedPosts();
     }
 
     render = () => {
@@ -9,10 +13,10 @@ class Slider extends React.Component {
             <div className={"slider"}>
                 <div className={"controls"}>
                     <div className={"left"}>
-                        leftarrow
+                        <a href="#" onClick={this.prevSlide}>leftarrow</a>
                     </div>
                     <div className={"right"}>
-                        rightarrow
+                        <a href="#" onClick={this.nextSlide}>rightarrow</a>
                     </div>
                     <div className={"current-slide"}>
                         { this.renderSlide() }
@@ -20,13 +24,23 @@ class Slider extends React.Component {
                 </div>
             </div>
         )
+    };
+
+    getFeaturedPosts = () => {
+        axios.get('/blogs/featured').then(
+            response => {
+                this.setState({
+                    featuredPosts: response.data
+                });
+            }
+        )
     }
 
     renderSlide = () => {
         return (
             <Slide slide={this.state.featuredPosts[this.state.currentSlide]} />
         );
-    }
+    };
 
     nextSlide = () => {
         if(this.state.currentSlide < this.state.featuredPosts.length) {

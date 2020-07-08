@@ -50,6 +50,54 @@ class Blogs {
         return $blogs;
     }
 
+    static function featured() {
+        $blogs = array();
+
+        $results = pg_query("SELECT * FROM blogs where is_featured = 1");
+
+        $row_object = pg_fetch_object($results);
+        while($row_object){
+            $new_blog = new Blog(
+                intval($row_object->id),
+                $row_object->title,
+                $row_object->author,
+                $row_object->image,
+                $row_object->content,
+                $row_object->snippet,
+                $row_object->created_at,
+                $row_object->is_featured,
+                $row_object->likes
+            );
+            $blogs[] = $new_blog;
+            $row_object = pg_fetch_object($results);
+        }
+        return $blogs;
+    }
+
+    static function single($id) {
+        $query = "SELECT * FROM blogs WHERE id = $1";
+        $query_params = array($id);
+        $results = pg_query_params($query, $query_params);
+        $blog = '';
+
+        $row_object = pg_fetch_object($results);
+        while($row_object){
+            $new_blog = new Blog(
+                intval($row_object->id),
+                $row_object->title,
+                $row_object->author,
+                $row_object->image,
+                $row_object->content,
+                $row_object->snippet,
+                $row_object->created_at,
+                $row_object->is_featured,
+                $row_object->likes
+            );
+            $blog = $new_blog;
+            $row_object = pg_fetch_object($results);
+        }
+        return $blog;
+    }
     static function create($blog){
         $query = "INSERT INTO blogs (title, author, image, content, snippet, created_at, is_featured, likes) VALUES ($1, $2, $3, $3, $4, $5, $6, $7)";
         $query_params = array($blog->author, $blog->image, $blog->content, $blog->snippet, $blog->created_at, $blog->is_featured, $blog->likes);

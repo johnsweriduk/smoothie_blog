@@ -127,7 +127,7 @@ class Blogs {
 
     static function update($updated_blog){
         $query = "UPDATE posts SET title = $1, author = $2, image = $3, content = $4, snippet = $5, created_at = $6, is_featured = $7, likes = $8 WHERE id = $9";
-        $query_params = array($updated_blog->title, $updated_blog->author, $updated_blog->image, $updated_blog->content, $updated_blog->snippet, $updated_blog->created_at, $updated_blog->is_featured, $updated_blog->id, $updated_blog->likes);
+        $query_params = array($updated_blog->title, $updated_blog->author, $updated_blog->image, $updated_blog->content, $updated_blog->snippet, $updated_blog->created_at, intval($updated_blog->is_featured), $updated_blog->id, $updated_blog->likes);
         $result = pg_query_params($query, $query_params);
 
         return self::all();

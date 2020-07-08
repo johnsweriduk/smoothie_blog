@@ -1,4 +1,4 @@
-class BlogCreate extends React.Component {
+class CreatePost extends React.Component {
   state = {
     posts: []
   }

@@ -27,35 +27,36 @@ class BlogPost extends React.Component {
                 <div className={"image"}>
                 <img src={blog.image} />
                 </div>
-                  <div className={"overlay"}>
 
-                  <div className={"title"}>
+                    <div className={"overlay"}>
 
-                  <h3>{blog.title}</h3>
-                  </div>
+                      <div className={"title"}>
 
-                  <div className={"snippet"}>
-                  <p>{blog.snippet}</p>
-                  </div>
+                        <h3>{blog.title}</h3>
+                      </div>
 
-                  <div className={"blog-meta"}>
+                        <div className={"snippet"}>
+                          <p>{blog.snippet}</p>
+                          </div>
 
-                  <div className={"author"}>
+                            <div className={"blog-meta"}>
 
-                   <p>{blog.author}</p>
-                   </div>
+                              <div className={"author"}>
 
-                   <div className={"published"}>
-                   <p>{blog.created_at}</p>
-                   </div>
+                              <p>{blog.author}</p>
+                              </div>
 
-                   <div className={"likes"}>
-                   <p>{blog.likes}</p>
+                                <div className={"published"}>
+                                <p>{blog.created_at}</p>
+                                </div>
 
-                   </div>
-                 </div>
-                </div>
-              </div>
+                                  <div className={"likes"}>
+                                  <p>{blog.likes}</p>
+
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
               </li>
             }
           )

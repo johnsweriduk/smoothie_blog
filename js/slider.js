@@ -78,6 +78,7 @@ class Slide extends React.Component {
                         </div>
                         <div className={"likes"}>
                             <p>{this.props.slide.likes}</p>
+                        </div>
                     </div>
                 </div>
             </div>

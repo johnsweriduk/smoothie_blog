@@ -20,5 +20,3 @@ if ($_REQUEST['action'] === 'index') {
     $all_blogs = Blogs::delete($_REQUEST['id']);
     echo json_encode($all_blogs);
 }
-
-?>

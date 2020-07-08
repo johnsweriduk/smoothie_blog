@@ -69,5 +69,3 @@ class Blogs {
         return self::all();
     }
 }
-
-?>

@@ -37,9 +37,26 @@ class Slider extends React.Component {
     }
 
     renderSlide = () => {
-        return (
-            <Slide slide={this.state.featuredPosts[this.state.currentSlide]} />
-        );
+        if(this.state.featuredPosts.length) {
+            return (
+                <Slide slide={this.state.featuredPosts[this.state.currentSlide]}/>
+            );
+        } else {
+            const post = {
+                author: 'test',
+                title: 'Test',
+                image: 'test',
+                content: 'test',
+                snippet: 'test',
+                created_at: 'test',
+                is_featured: 'test'
+            };
+
+
+            return (
+                <Slide slide={post}/>
+            );
+        }
     };
 
     nextSlide = () => {

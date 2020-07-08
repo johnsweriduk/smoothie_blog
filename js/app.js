@@ -1,14 +1,60 @@
+const Router = window.ReactRouterDOM.BrowserRouter;
+const Route =  window.ReactRouterDOM.Route;
+const Link =  window.ReactRouterDOM.Link;
+const Prompt =  window.ReactRouterDOM.Prompt;
+const Switch = window.ReactRouterDOM.Switch;
+const Redirect = window.ReactRouterDOM.Redirect;
+
 class SmoothiesGalore extends React.Component {
+    state = {
+        addPost: false
+    }
     render = () => {
-        return (
+        /*return (
             <div className={"smoothies-galore"}>
                 <div className={"nav"}>
-                    <a href={"/"}>Home</a>
-                    <a href={"/add-blog"}>Add Blog</a>
+                    <Link to="/">Home</Link>
+                    <Link to="/add-post">Add Blog</Link>
                 </div>
-                <BlogList />
-                <BlogCreate />
+                {this.state.addPost ?
+                    <div className={"posts"}>
+                        <Slider/>
+                        < BlogList />
+                    </div>
+                    :
+                    <CreatePost/>
+                }
             </div>
-        );
+        );*/
+        return (
+            <Router>
+                <div className={"smoothies-galore"}>
+                    <div className={"nav"}>
+                        <Link to="/">Home</Link>
+                        <Link to="/add-post">Add Blog</Link>
+                    </div>
+                    <Switch>
+                        <Route path={"/blog/:id"} component={Blog}></Route>
+                        <Route path={"/add-post"} component={CreatePost}></Route>
+                        <Route path={"/"}>
+                            <div className={"posts"}>
+                                <Slider/>
+                                <BlogList />
+                            </div>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        )
+    }
+    showPosts = () => {
+        this.setState({
+            addPost: false
+        });
+    }
+    createPost = () => {
+        this.setState({
+            addPost: true
+        })
     }
 }

@@ -32,7 +32,7 @@ class BlogList extends React.Component {
 
                       <div className={"title"}>
 
-                        <h3>{blog.title}</h3>
+                        <h3><Link to={"/blog/" + blog.id}>{blog.title}</Link></h3>
                       </div>
 
                         <div className={"snippet"}>

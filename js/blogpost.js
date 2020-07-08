@@ -1,6 +1,7 @@
-class BlogCreate extends React.Component {
+class CreatePost extends React.Component {
   state = {
-    posts: []
+    posts: [],
+    newPostIsFeatured: false
   }
 
 
@@ -15,17 +16,12 @@ class BlogCreate extends React.Component {
         content:this.state.newPostContent,
         snippet:this.state.newPostSnippet,
         created_at:this.state.newPostCreatedAt,
-        is_featured:false,
+        is_featured:this.state.newPostIsFeatured,
         likes:0,
       }
     ).then(
       (response) => {
-        console.log(response);
-        this.setState(
-          {
-            posts:response.data
-          }
-        )
+        this.props.history.push('/blog/' + response.data.id);
       }
     )
   }
@@ -76,7 +72,7 @@ changeNewPostCreatedAt = (event) => {
 
 changeNewPostIsFeatured = (event) => {
   this.setState({
-    newPostIsFeatured:event.target.value
+    newPostIsFeatured:event.target.checked
   });
   // console.log(this);
 }
@@ -92,7 +88,7 @@ render = () => {
   <input onKeyUp={this.changeNewPostContent} type="text" placeholder="Express your thoughts.." />
   <input onKeyUp={this.changeNewPostSnippet} type="text" placeholder="Include a snippet" />
   <input onKeyUp={this.changeNewPostCreatedAt} type="date" />
-  <input onKeyUp={this.changeNewPostIsFeatured} type="checkbox" />
+  <input onChange={this.changeNewPostIsFeatured} type="checkbox" />
   <button type="submit">Create Post</button>
   </form>
   </div>

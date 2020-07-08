@@ -1,6 +1,7 @@
 class CreatePost extends React.Component {
   state = {
-    posts: []
+    posts: [],
+    newPostIsFeatured: false
   }
 
 
@@ -20,12 +21,7 @@ class CreatePost extends React.Component {
       }
     ).then(
       (response) => {
-        console.log(response);
-        this.setState(
-          {
-            posts:response.data
-          }
-        )
+        this.props.history.push('/blog/' + response.data.id);
       }
     )
   }

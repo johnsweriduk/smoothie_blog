@@ -34,11 +34,8 @@ class SmoothiesGalore extends React.Component {
                         <Link to="/add-post">Add Blog</Link>
                     </div>
                     <Switch>
-                        <Route path={"/blog/:id"} component={Blog}>
-                        </Route>
-                        <Route path={"/add-post"}>
-                            <CreatePost />
-                        </Route>
+                        <Route path={"/blog/:id"} component={Blog}></Route>
+                        <Route path={"/add-post"} component={CreatePost}></Route>
                         <Route path={"/"}>
                             <div className={"posts"}>
                                 <Slider/>

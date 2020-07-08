@@ -3,6 +3,7 @@ $dbconn = pg_connect("host=localhost dbname=grapevine user=bloggres");
 
 class Blog {
     public $id;
+    public $title;
     public $author;
     public $image;
     public $content;
@@ -11,8 +12,9 @@ class Blog {
     public $is_featured;
     public $likes;
 
-    public function __construct($id, $author, $image, $content, $snippet, $created_at, $is_featured, $likes){
+    public function __construct($id, $title, $author, $image, $content, $snippet, $created_at, $is_featured, $likes){
         $this->id = $id;
+        $this->title = $title;
         $this->author = $author;
         $this->image = $image;
         $this->content = $content;
@@ -33,6 +35,7 @@ class Blogs {
         while($row_object){
             $new_blog = new Blog(
                 intval($row_object->id),
+                $row_object->title,
                 $row_object->author,
                 $row_object->image,
                 $row_object->content,
@@ -48,15 +51,15 @@ class Blogs {
     }
 
     static function create($blog){
-        $query = "INSERT INTO blogs (author, image, content, snippet, created_at, is_featured, likes) VALUES ($1, $2, $3, $3, $4, $5, $6, $7)";
+        $query = "INSERT INTO blogs (title, author, image, content, snippet, created_at, is_featured, likes) VALUES ($1, $2, $3, $3, $4, $5, $6, $7)";
         $query_params = array($blog->author, $blog->image, $blog->content, $blog->snippet, $blog->created_at, $blog->is_featured, $blog->likes);
         pg_query_params($query, $query_params);
         return self::all();
     }
 
     static function update($updated_blog){
-        $query = "UPDATE blogs SET author = $1, image = $2, content = $3, snippet = $4, created_at = $5, is_featured = $6, likes = $7 WHERE id = $8";
-        $query_params = array($updated_blog->author, $updated_blog->image, $updated_blog->content, $updated_blog->snippet, $updated_blog->created_at, $updated_blog->is_featured, $updated_blog->id, $updated_blog->likes);
+        $query = "UPDATE blogs SET title = $1, author = $2, image = $3, content = $4, snippet = $5, created_at = $6, is_featured = $7, likes = $8 WHERE id = $9";
+        $query_params = array($updated_blog->title, $updated_blog->author, $updated_blog->image, $updated_blog->content, $updated_blog->snippet, $updated_blog->created_at, $updated_blog->is_featured, $updated_blog->id, $updated_blog->likes);
         $result = pg_query_params($query, $query_params);
 
         return self::all();

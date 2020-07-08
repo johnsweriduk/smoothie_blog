@@ -1,16 +1,16 @@
-class BlogPost extends React.Component {
+class BlogList extends React.Component {
   state = {
     posts: []
   }
 
   componentDidMount = () => {
-        axios.get('/blogs').then(
+        /*axios.get('/blogs').then(
             response => {
                 this.setState({
                     posts: response.data
                 });
             }
-        )
+        )*/
     }
 
 

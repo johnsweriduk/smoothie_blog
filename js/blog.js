@@ -3,6 +3,33 @@ class Blog extends React.Component {
         edit: false
     }
 
+    likePost = () => {
+      event.preventDefault();
+      console.log('test');
+      const newLikes = parseInt(this.state.likes) + 1;
+      axios.put(
+          '/blogs/' + this.state.id,
+          {
+              author: this.state.author,
+              title: this.state.title,
+              image: this.state.image,
+              content: this.state.content,
+              snippet: this.state.snippet,
+              created_at: this.state.created_at,
+              is_featured: this.state.is_featured,
+              likes:newLikes,
+          }
+      ).then(
+          (response) => {
+              console.log(response);
+              this.setState({
+                likes:newLikes
+              });
+          }
+      )
+    }
+
+
     componentDidMount = () => {
         console.log(this.props);
         let id = this.props.match.params.id;

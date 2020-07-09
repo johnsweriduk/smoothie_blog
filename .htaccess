@@ -34,4 +34,4 @@ RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_URI} !/blogs/
 RewriteRule . /index.html [L]
 
-DirectoryIndex index.html
+DirectoryIndex index.html 

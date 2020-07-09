@@ -49,8 +49,11 @@ class BlogShort extends React.Component {
     }
 
     likePost = () => {
-      event.preventDefault();
       const newLikes = parseInt(this.state.likes) + 1;
+      let is_featured = true;
+      if(this.state.is_featured == 'f') {
+          is_featured = false;
+      }
       axios.put(
           '/blogs/' + this.state.id,
           {
@@ -60,7 +63,7 @@ class BlogShort extends React.Component {
               content: this.state.content,
               snippet: this.state.snippet,
               created_at: this.state.created_at,
-              is_featured: this.state.is_featured,
+              is_featured: is_featured,
               likes:newLikes,
           }
       ).then(

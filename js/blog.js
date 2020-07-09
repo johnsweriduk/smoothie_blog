@@ -4,7 +4,10 @@ class Blog extends React.Component {
     }
 
     likePost = () => {
-      event.preventDefault();
+        let is_featured = true;
+        if(this.state.is_featured == 'f') {
+            is_featured = false;
+        }
       console.log('test');
       const newLikes = parseInt(this.state.likes) + 1;
       axios.put(
@@ -16,7 +19,7 @@ class Blog extends React.Component {
               content: this.state.content,
               snippet: this.state.snippet,
               created_at: this.state.created_at,
-              is_featured: this.state.is_featured,
+              is_featured: is_featured,
               likes:newLikes,
           }
       ).then(

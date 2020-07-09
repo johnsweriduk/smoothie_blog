@@ -45,20 +45,7 @@ class Slider extends React.Component {
                 <Slide slide={this.state.featuredPosts[this.state.currentSlide]} />
             );
         } else {
-            const post = {
-                author: 'test',
-                title: 'Test',
-                image: 'test',
-                content: 'test',
-                snippet: 'test',
-                created_at: 'test',
-                is_featured: 'test',
-                likes: 0,
-                id: 0
-            };
-            return (
-                <Slide slide={post}/>
-            );
+            return <div></div>;
         }
     };
 
@@ -96,19 +83,22 @@ class Slide extends React.Component {
   constructor(props){
     super(props)
     this.state.id=props.slide.id
-    this.state.author=props.slide.author
-    this.state.title=props.slide.title
-    this.state.image=props.slide.image
-    this.state.content=props.slide.content
-    this.state.snippet=props.slide.snippet
-    this.state.created_at=props.slide.created_at
-    this.state.is_featured=props.slide.is_featured
-    this.state.likes=props.slide.likes
-    console.log(props.id);
+    this.state.author=props.slide.author;
+    this.state.title=props.slide.title;
+    this.state.image=props.slide.image;
+    this.state.content=props.slide.content;
+    this.state.snippet=props.slide.snippet;
+    this.state.created_at=props.slide.created_at;
+    this.state.is_featured=props.slide.is_featured;
+    this.state.likes=props.slide.likes;
+    console.log(props);
   }
 
   likePost = () => {
-    event.preventDefault();
+      let is_featured = true;
+      if(this.state.is_featured == 'f') {
+          is_featured = false;
+      }
     const newLikes = parseInt(this.state.likes) + 1;
     axios.put(
         '/blogs/' + this.state.id,
@@ -119,7 +109,7 @@ class Slide extends React.Component {
             content: this.state.content,
             snippet: this.state.snippet,
             created_at: this.state.created_at,
-            is_featured: this.state.is_featured,
+            is_featured: is_featured,
             likes:newLikes,
         }
     ).then(

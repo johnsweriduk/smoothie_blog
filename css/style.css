@@ -4,20 +4,27 @@
 }
 body {
     margin: 0;
+    background-color: #F5F5F5;
+    font-family: 'Nunito Sans', sans-serif;
 }
 * {
     box-sizing: border-box;
 }
 .nav a {
     outline: none;
+    color: #8B008B;
     text-decoration: none;
-    color: inherit;
     padding-right: 30px;
     float: right;
+    font-family: 'Carter One', cursive;
 }
+
+.nav a:hover{
+  color:#00CED1;
+}
+
 .nav {
     padding: 15px;
-    background: #f7f7f7;
     display: inline-block;
     width: 100%;
 }
@@ -39,6 +46,11 @@ body {
     top: 250px;
     transform: translateY(-50%);
 }
+
+.slider .controls > div a:hover {
+    background-color: rgba(255, 255, 255, .5);
+}
+
 .slider {
     position: relative;
 }
@@ -46,18 +58,21 @@ body {
 .slider .controls .left {
     right: 15px;
 }
+
 .slider .controls .right {
     left: 15px;
 }
+
 .slider .controls a {
     outline: none;
-    color: inherit;
+    color: #8B008B;
     text-decoration: none;
     padding: 10px 15px;
     background: #fff;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    transition: all 0.2s ease-in-out;
 }
 .slide .overlay {
     width: 80%;
@@ -80,6 +95,7 @@ body {
 }
 .blog-meta span {
     font-weight: 300;
+    color: #8B008B;
 }
 .blog-meta {
     display: inline-block;
@@ -152,6 +168,13 @@ body {
     margin-left: 7.5px;
     border-radius: 4px;
 }
+
+.create-blog button:hover {
+    background: #00CED1;
+    border-color: #00CED1;
+    color:white;
+}
+
 .blog .image img {
     width: 100%;
     height: auto;
@@ -167,10 +190,43 @@ body {
     text-align: center;
 }
 .title a {
-    color: inherit;
+    color: #8B008B;
     text-decoration: none;
     outline: none;
 }
 button {
     cursor: pointer;
+}
+
+.blog-meta p {
+    color: #00CED1;
+}
+
+.title h2,
+.blog-list .title a,
+.title h1  {
+    color: #8B008B;
+}
+
+.likes button {
+    border-radius: 50%;
+    height: 28px;
+    color: whitesmoke;
+    background-color: #8B008B;
+    border-color: #8B008B;
+}
+
+.edit button {
+    background: transparent;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    margin-top: 15px;
+    margin-left: 7.5px;
+    border-radius: 4px;
+}
+
+.edit button:hover {
+  background-color: #00CED1;
+  border-color: #00CED1;
+  color:white;
 }

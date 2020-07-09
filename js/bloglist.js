@@ -6,6 +6,7 @@ class BlogList extends React.Component {
   componentDidMount = () => {
         axios.get('/blogs').then(
             response => {
+              console.log(response);
                 this.setState({
                     posts: response.data
                 });

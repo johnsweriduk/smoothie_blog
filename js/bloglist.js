@@ -34,9 +34,46 @@ class BlogList extends React.Component {
 }
 
 class BlogShort extends React.Component {
-    likePost = () => {
-
+    state = {}
+    constructor(props){
+      super(props)
+      this.state.id=props.blog.id
+      this.state.author=props.blog.author
+      this.state.title=props.blog.title
+      this.state.image=props.blog.image
+      this.state.content=props.blog.content
+      this.state.snippet=props.blog.snippet
+      this.state.created_at=props.blog.created_at
+      this.state.is_featured=props.blog.is_featured
+      this.state.likes=props.blog.likes
     }
+
+    likePost = () => {
+      event.preventDefault();
+      const newLikes = parseInt(this.state.likes) + 1;
+      axios.put(
+          '/blogs/' + this.state.id,
+          {
+              author: this.state.author,
+              title: this.state.title,
+              image: this.state.image,
+              content: this.state.content,
+              snippet: this.state.snippet,
+              created_at: this.state.created_at,
+              is_featured: this.state.is_featured,
+              likes:newLikes,
+          }
+      ).then(
+          (response) => {
+              console.log(response);
+              this.setState({
+                likes:newLikes
+              });
+          }
+      )
+  }
+
+
     render = () => {
         return (
             <li>
@@ -59,7 +96,7 @@ class BlogShort extends React.Component {
                                 <p>Published: <span>{this.props.blog.created_at}</span></p>
                             </div>
                             <div className={"likes"}>
-                                <p>Likes: <span>{this.props.blog.likes}</span> <button onClick={this.likePost}>❤</button></p>
+                                <p>Likes: <span>{this.state.likes}</span> <button onClick={this.likePost}>❤</button></p>
                             </div>
                         </div>
                     </div>

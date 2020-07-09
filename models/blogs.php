@@ -70,7 +70,7 @@ class Blogs
         }
         return $blogs;
     }
-​
+
     static function featured()
     {
         $blogs = array();
@@ -95,7 +95,7 @@ class Blogs
         }
         return $blogs;
     }
-​
+
     static function single($id)
     {
         $query = "SELECT * FROM posts WHERE id = $1";
@@ -121,7 +121,7 @@ class Blogs
         }
         return $blog;
     }
-​
+
     static function create($blog)
     {
         $query = "INSERT INTO posts (title, author, image, content, snippet, created_at, is_featured, likes)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";

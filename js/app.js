@@ -30,8 +30,9 @@ class SmoothiesGalore extends React.Component {
             <Router>
                 <div className={"smoothies-galore"}>
                     <div className={"nav"}>
-                        <Link to="/">Home</Link>
+                        <Link to={"/"} className={"logo"}>Smoothies Galore!</Link>
                         <Link to="/add-post">Add Blog</Link>
+                        <Link to="/">Home</Link>
                     </div>
                     <Switch>
                         <Route path={"/blog/:id"} component={Blog}></Route>

@@ -14,14 +14,14 @@ class Slider extends React.Component {
             <div className={"slider"}>
                 <div className={"controls"}>
                     <div className={"left"}>
-                        <a href="#" onClick={this.prevSlide}>leftarrow</a>
+                        <a href="#" onClick={this.prevSlide}>Next</a>
                     </div>
                     <div className={"right"}>
-                        <a href="#" onClick={this.nextSlide}>rightarrow</a>
+                        <a href="#" onClick={this.nextSlide}>Prev</a>
                     </div>
-                    <div className={"current-slide"}>
-                        { this.renderSlide() }
-                    </div>
+                </div>
+                <div className={"current-slide"}>
+                    { this.renderSlide() }
                 </div>
             </div>
         )
@@ -93,28 +93,31 @@ class Slide extends React.Component {
         return (
             <div className={"slide"}>
                 <div className={"image"}>
-                    <img src={this.props.slide.image} />
+                    <Link to={"/blog/" + this.props.slide.id}><img src={this.props.slide.image} /></Link>
                 </div>
                 <div className={"overlay"}>
                     <div className={"title"}>
-                        <h3>{this.props.slide.title}</h3>
+                        <h3><Link to={"/blog/" + this.props.slide.id}>{this.props.slide.title}</Link></h3>
                     </div>
                     <div className={"snippet"}>
                         <p>{this.props.slide.snippet}</p>
                     </div>
                     <div className={"blog-meta"}>
                         <div className={"author"}>
-                            <p>{this.props.slide.author}</p>
+                            <p>Author: <span>{this.props.slide.author}</span></p>
                         </div>
                         <div className={"published"}>
-                            <p>{this.props.slide.created_at}</p>
+                            <p>Published: <span>{this.props.slide.created_at}</span></p>
                         </div>
                         <div className={"likes"}>
-                            <p>{this.props.slide.likes}</p>
+                            <p>Likes: <span>{this.props.slide.likes}</span> <button onClick={this.likePost}>❤</button></p>
                         </div>
                     </div>
                 </div>
             </div>
         );
+    }
+    likePost = () => {
+
     }
 }

@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec5018a6-fbd8-49b2-8647-97da2a733a26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/blogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/blogs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bloglist.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/bloglist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/blogpost.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/blogpost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/blogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/blogs.php" afterDir="false" />
-    </list>
+    <list default="true" id="ec5018a6-fbd8-49b2-8647-97da2a733a26" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +24,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/blogs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="878">
+            <state relative-caret-position="2720">
               <caret line="154" column="228" selection-start-line="154" selection-start-column="228" selection-end-line="154" selection-end-column="228" />
             </state>
           </provider>
@@ -88,7 +78,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/blog.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1037">
@@ -155,7 +145,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="2854" />
     <option name="y" value="-8" />
     <option name="width" value="459" />
     <option name="height" value="1054" />
@@ -237,13 +227,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28876000" />
+    <option name="totallyTimeSpent" value="29490000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="2552" y="-7" width="1096" height="1896" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08346582" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2027027" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -327,13 +317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/blogs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="878">
-          <caret line="154" column="228" selection-start-line="154" selection-start-column="228" selection-end-line="154" selection-end-column="228" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/blogpost.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -345,6 +328,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="112" column="11" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/blogs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2720">
+          <caret line="154" column="228" selection-start-line="154" selection-start-column="228" selection-end-line="154" selection-end-column="228" />
         </state>
       </provider>
     </entry>

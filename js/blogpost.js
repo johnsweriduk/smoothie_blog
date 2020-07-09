@@ -21,6 +21,7 @@ class CreatePost extends React.Component {
       }
     ).then(
       (response) => {
+        console.log(response);
         this.props.history.push('/blog/' + response.data.id);
       }
     )
@@ -79,16 +80,19 @@ changeNewPostIsFeatured = (event) => {
 
 
 render = () => {
-  return <div>
+  return <div className={"create-blog"}>
   <h3>Create New Post</h3>
   <form onSubmit={this.createPost}>
-  <input onKeyUp={this.changeNewPostAuthor} type="text" placeholder="Your name" />
+  <input onKeyUp={this.changeNewPostAuthor} type="text" placeholder="Author" />
   <input onKeyUp={this.changeNewPostTitle} type="text" placeholder="Title" />
-  <input onKeyUp={this.changeNewPostPicture} type="text" placeholder="URL" />
-  <input onKeyUp={this.changeNewPostContent} type="text" placeholder="Express your thoughts.." />
-  <input onKeyUp={this.changeNewPostSnippet} type="text" placeholder="Include a snippet" />
+  <input onKeyUp={this.changeNewPostPicture} type="text" placeholder="Image URL" />
   <input onKeyUp={this.changeNewPostCreatedAt} type="date" />
-  <input onChange={this.changeNewPostIsFeatured} type="checkbox" />
+  <textarea onKeyUp={this.changeNewPostContent} type="text" placeholder="Express your thoughts.." />
+  <textarea onKeyUp={this.changeNewPostSnippet} type="text" placeholder="Include a snippet" />
+  <div className={"checkbox"}>
+    <label for="featured">Featured Post?</label>
+    <input onChange={this.changeNewPostIsFeatured} type="checkbox" name={"featured"} id={"featured"} />
+  </div>
   <button type="submit">Create Post</button>
   </form>
   </div>

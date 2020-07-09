@@ -126,7 +126,7 @@ class Blogs
     {
         $query = "INSERT INTO posts (title, author, image, content, snippet, created_at, is_featured, likes)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
         $query_params = array($blog->title, $blog->author, $blog->image, $blog->content, $blog->snippet, $blog->created_at, intval($blog->is_featured), $blog->likes);
-        $result = pg_query_params($query, $query_params);
+        pg_query_params($query, $query_params);
 
 
         $results = pg_query("SELECT * FROM posts ORDER BY id DESC LIMIT 1");
@@ -152,7 +152,7 @@ class Blogs
     static function update($updated_blog)
     {
         $query = "UPDATE posts SET title = $1, author = $2, image = $3, content = $4, snippet = $5, created_at = $6, is_featured = $7, likes = $8 WHERE id = $9";
-        $query_params = array($updated_blog->title, $updated_blog->author, $updated_blog->image, $updated_blog->content, $updated_blog->snippet, $updated_blog->created_at, intval($updated_blog->is_featured), $updated_blog->id, $updated_blog->likes);
+        $query_params = array($updated_blog->title, $updated_blog->author, $updated_blog->image, $updated_blog->content, $updated_blog->snippet, $updated_blog->created_at, intval($updated_blog->is_featured), $updated_blog->likes, $updated_blog->id);
         $result = pg_query_params($query, $query_params);
 
         return self::all();
